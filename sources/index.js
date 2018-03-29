@@ -1,19 +1,13 @@
 'use strict';
 
-var _ = require('underscore');
-var fs = require('fs');
-var path = require('path');
-
-var excludedFiles = [
-	'index.js',
-];
-
-var files = _.filter(fs.readdirSync(__dirname), function(file) {
-	return !_.contains(excludedFiles, file);
-});
-
-_.each(files, function(file) {
-	var name = file.split('.')[0];
-	var filePath = path.join(__dirname, file);
-	module.exports[name] = require(filePath);
-});
+module.exports.bitproxies = require('./bitproxies')
+module.exports.blackhatworld = require('./blackhatworld')
+module.exports.coolproxy = require('./coolproxy')
+module.exports.freeproxylist = require('./freeproxylist')
+module.exports.gatherproxy = require('./gatherproxy')
+module.exports.incloak = require('./incloak')
+module.exports.kingproxies = require('./kingproxies')
+module.exports.premproxy = require('./premproxy')
+module.exports.proxies24 = require('./proxies24')
+module.exports.proxylisten = require('./proxylisten')
+module.exports.sockslist = require('./sockslist')
