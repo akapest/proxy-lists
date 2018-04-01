@@ -177,7 +177,11 @@ var ProxyLists = module.exports = {
 				// Add the 'source' attribute to every proxy.
 				proxies = _.map(proxies, function(proxy) {
 					proxy.source = name;
-					proxy.country = GeoIpNativeLite.lookup(proxy.ipAddress);
+					try {
+					    proxy.country = GeoIpNativeLite.lookup(proxy.ipAddress);
+					} catch (e) {
+					    proxy.country = 'unknown';
+					}
 					return proxy;
 				});
 
